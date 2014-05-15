@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_save :create_remember_token
-  
+  #attr_accessible :name, :email, :password, :password_confirmation
+  #attr_accessor :name, :password, :email
   validates :name, presence: true, length: { maximum: 50 }
   # below regex fails and the standard email verification Regex is 
   # /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i
