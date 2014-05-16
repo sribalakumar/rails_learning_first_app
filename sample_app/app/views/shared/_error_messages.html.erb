@@ -1,10 +1,11 @@
-<% if @user.errors.any? %>
+<%#  There is a some stupid mistake here. The Create method of the static_pages controller has only the @micropost variable where the DB action is called. So in this ERB everything should be a @micropost and no call to the @user variable. %>
+<% if @micropost.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-error">
-      The form contains <%= pluralize(@user.errors.count, "error") %>.
+      The form contains <%= pluralize(@micropost.errors.count, "error") %>.
     </div>
     <ul>
-    <% @user.errors.full_messages.each do |msg| %>
+    <% @micropost.errors.full_messages.each do |msg| %>
       <li>* <%= msg %></li>
     <% end %>
     </ul>
